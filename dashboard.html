@@ -7,32 +7,59 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { background-color: #f8f9fa; padding: 1rem; }
-    .chart-container { height: 350px; margin-bottom: 2rem; }
+    body { background-color: #f8f9fa; margin: 0; padding: 0; min-height: 100vh; }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 1.5rem;
+      height: 80vh;
+      width: 100vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+    .chart-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      padding: 1.2rem 1rem 0.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-width: 0;
+    }
+    h1 {
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 900px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="text-center mb-4">Panel Gerencial de Renta de Propiedades</h1>
-
+  <h1 class="text-center">Panel Gerencial de Renta de Propiedades</h1>
+  <div class="dashboard-grid">
     <div class="chart-container">
       <h5>Ingresos Totales por Tipo de Propiedad</h5>
       <p class="text-muted">Este gráfico muestra el total de ingresos agrupado por tipo de propiedad (ej. Departamento, Casa, Oficina)</p>
       <canvas id="grafico1"></canvas>
     </div>
-
     <div class="chart-container">
       <h5>Contratos Activos por Ciudad</h5>
       <p class="text-muted">Cantidad de contratos actualmente vigentes, agrupados por ciudad</p>
       <canvas id="grafico2"></canvas>
     </div>
-
     <div class="chart-container">
       <h5>Propiedades con Mayor Rentabilidad</h5>
       <p class="text-muted">Top 5 propiedades con mayor ingreso acumulado</p>
       <canvas id="grafico3"></canvas>
     </div>
-
     <div class="chart-container">
       <h5>Comparativa: Pagados vs Pendientes (Últimos 3 meses)</h5>
       <p class="text-muted">Estado de los pagos mensuales realizados por los inquilinos</p>
