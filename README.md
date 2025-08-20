@@ -14,10 +14,10 @@ El sistema que debes desarrollar maneja **rentas de propiedades inmobiliarias** 
 
 ## 🖼️ Interfaces Proporcionadas
 
-![Registro de Renta](./rent.png)
+![Registro de Renta](./src/rent.png)
 *Formulario para registrar un nuevo contrato de arrendamiento de propiedad*
 
-![Dashboard Gerencial](./dashboard.png)
+![Dashboard Gerencial](./src/dashboard.png)
 *Panel de control con reportes y métricas clave del sistema inmobiliario*
 
 ---
