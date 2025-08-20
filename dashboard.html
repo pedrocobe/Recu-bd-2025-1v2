@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Gerencial - Sistema de Renta</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; padding: 1rem; }
+    .chart-container { height: 350px; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Panel Gerencial de Renta de Propiedades</h1>
+
+    <div class="chart-container">
+      <h5>Ingresos Totales por Tipo de Propiedad</h5>
+      <p class="text-muted">Este gráfico muestra el total de ingresos agrupado por tipo de propiedad (ej. Departamento, Casa, Oficina)</p>
+      <canvas id="grafico1"></canvas>
+    </div>
+
+    <div class="chart-container">
+      <h5>Contratos Activos por Ciudad</h5>
+      <p class="text-muted">Cantidad de contratos actualmente vigentes, agrupados por ciudad</p>
+      <canvas id="grafico2"></canvas>
+    </div>
+
+    <div class="chart-container">
+      <h5>Propiedades con Mayor Rentabilidad</h5>
+      <p class="text-muted">Top 5 propiedades con mayor ingreso acumulado</p>
+      <canvas id="grafico3"></canvas>
+    </div>
+
+    <div class="chart-container">
+      <h5>Comparativa: Pagados vs Pendientes (Últimos 3 meses)</h5>
+      <p class="text-muted">Estado de los pagos mensuales realizados por los inquilinos</p>
+      <canvas id="grafico4"></canvas>
+    </div>
+  </div>
+
+  <script>
+    new Chart(document.getElementById("grafico1"), {
+      type: 'bar',
+      data: {
+        labels: ["Departamento", "Casa", "Oficina"],
+        datasets: [{ label: 'Ingresos ($)', data: [32000, 21500, 12000], backgroundColor: '#4e73df' }]
+      }
+    });
+
+    new Chart(document.getElementById("grafico2"), {
+      type: 'pie',
+      data: {
+        labels: ["Manta", "Portoviejo", "Quito"],
+        datasets: [{ data: [25, 10, 5], backgroundColor: ["#36b9cc", "#1cc88a", "#f6c23e"] }]
+      }
+    });
+
+    new Chart(document.getElementById("grafico3"), {
+      type: 'bar',
+      data: {
+        labels: ["Propiedad 101", "Propiedad 305", "Propiedad 208", "Propiedad 412", "Propiedad 099"],
+        datasets: [{ label: 'Ingreso Total ($)', data: [8200, 7400, 6900, 6700, 6100], backgroundColor: '#e74a3b' }]
+      }
+    });
+
+    new Chart(document.getElementById("grafico4"), {
+      type: 'line',
+      data: {
+        labels: ["Junio", "Julio", "Agosto"],
+        datasets: [
+          { label: 'Pagados', data: [23, 27, 30], borderColor: '#1cc88a', fill: false },
+          { label: 'Pendientes', data: [5, 3, 2], borderColor: '#e74a3b', fill: false }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
